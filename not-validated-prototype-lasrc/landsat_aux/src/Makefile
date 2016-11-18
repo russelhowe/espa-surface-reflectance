@@ -50,9 +50,9 @@ $(EXE): $(OBJ) $(INC)
 #-----------------------------------------------------------------------------
 install:
 	install -d $(link_path)
-	install -d $(l8_bin_install_path)
-	install -m 755 $(EXE) $(l8_bin_install_path)
-	ln -sf $(l8_link_source_path)/$(EXE) $(link_path)/$(EXE)
+	install -d $(lasrc_bin_install_path)
+	install -m 755 $(EXE) $(lasrc_bin_install_path)
+	ln -sf $(lasrc_link_source_path)/$(EXE) $(link_path)/$(EXE)
 
 #-----------------------------------------------------------------------------
 clean:
