@@ -30,7 +30,8 @@ NCFLAGS  = $(EXTRA) $(INCDIR) $(HDF_INCDIR)
 EXLIB = -L$(ESPALIB) -l_espa_common \
         -L$(XML2LIB) -lxml2 \
         -L$(LZMALIB) -llzma \
-        -L$(ZLIBLIB) -lz
+        -L$(ZLIBLIB) -lz \
+        -L$(SZIPLIB) -lsz
 HDF_EXLIB = -L$(HDFEOS_LIB) -lhdfeos \
             -L$(HDFLIB) -lmfhdf -ldf \
             -L$(JPEGLIB) -ljpeg \
