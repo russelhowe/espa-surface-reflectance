@@ -33,11 +33,12 @@ class DatasourceResolver:
     # correct subdirectories for each of the instrument-specific ozone
     # products
     # These are version 006 products
-    SERVER_URL = 'ladssci.nascom.nasa.gov'
-    TERRA_CMA = '/allData/6/MOD09CMA/'
+    SERVER_URL_CMA = 'ladssci.nascom.nasa.gov'
+    SERVER_URL_CMG = 'ladsweb.nascom.nasa.gov'
+    TERRA_CMA = '/6/MOD09CMA/'
     TERRA_CMG = '/allData/6/MOD09CMG/'
-    AQUA_CMA = '/allData/6/MYD09CMA/'
-    AQUA_CMG = '/allData/6/MYD09CMG/'
+    AQUA_CMA =  '/6/MYD09CMA/'
+    AQUA_CMG =  '/allData/6/MYD09CMG/'
 
     user = None
     password = None
@@ -72,25 +73,25 @@ class DatasourceResolver:
 
         # append TERRA CMA data
         url = 'ftp://%s:%s@%s%s%d/%03d/MOD09CMA*%d%03d*.hdf' % \
-            (self.user, self.password, self.SERVER_URL, self.TERRA_CMA, year,
+            (self.user, self.password, self.SERVER_URL_CMA, self.TERRA_CMA, year,
              doy, year, doy)
         urlList.append(url)
 
         # append TERRA CMG data
-        url = 'ftp://%s:%s@%s%s%d/%03d/MOD09CMG*%d%03d*.hdf' % \
-            (self.user, self.password, self.SERVER_URL, self.TERRA_CMG, year,
+        url = 'ftp://%s%s%d/%03d/MOD09CMG*%d%03d*.hdf' % \
+            (self.SERVER_URL_CMG, self.TERRA_CMG, year,
              doy, year, doy)
         urlList.append(url)
 
         # append AQUA CMA data
         url = 'ftp://%s:%s@%s%s%d/%03d/MYD09CMA*%d%03d*.hdf' % \
-            (self.user, self.password, self.SERVER_URL, self.AQUA_CMA, year,
+            (self.user, self.password, self.SERVER_URL_CMA, self.AQUA_CMA, year,
              doy, year, doy)
         urlList.append(url)
 
         # append AQUA CMG data
-        url = 'ftp://%s:%s@%s%s%d/%03d/MYD09CMG*%d%03d*.hdf' % \
-            (self.user, self.password, self.SERVER_URL, self.AQUA_CMG, year,
+        url = 'ftp://%s%s%d/%03d/MYD09CMG*%d%03d*.hdf' % \
+            (self.SERVER_URL_CMG, self.AQUA_CMG, year,
              doy, year, doy)
         urlList.append(url)
 
